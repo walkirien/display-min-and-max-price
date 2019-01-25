@@ -1,0 +1,10 @@
+{%assign min_price = product.price %}
+ {%assign max_price = product.price %}
+        {% for variant in product.variants %}
+   {% if max_price < variant.price %}
+            {%assign max_price = variant.price %}
+   {% endif %}
+   {% if min_price > variant.price %}
+            {%assign min_price = variant.price %}
+   {% endif %}
+ {%endfor%}
